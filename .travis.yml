@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before-install:
+  - docker build -t gorkemkarahan/docker-learning-react -f Dockerfile.dev .
+
+script: 
+  - docker run gorkemkarahan/docker-learning-react npm run test -- --coverage
